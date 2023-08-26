@@ -6,7 +6,6 @@
 //         Створити 6 персонажів
 
 import './App.css'
-import "./hw_simpsons/character/characters";
 import Characters from "./hw_simpsons/character/characters";
 import Characterrick from "./hw_simpsons/character/characterrick";
 let simpsons = [
