@@ -3,6 +3,7 @@ import './App.css';
 import Posts from "./posts/posts";
 import Fullpost from "./fullpost/fullpost";
 import {useState} from "react";
+import SpaceX from "./spaceX/spaceX";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           {chosenPost && (<div className={'right'}>
               <Fullpost value={chosenPost}/>
           </div>)}
+          <SpaceX/>
     </div>
   );
 }
