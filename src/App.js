@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Child1 from "./child1/child1";
+import Child2 from "./child2/child2";
+import {createContext, useState} from "react";
+
+export const Context = createContext(null);
+
+
 
 function App() {
+    const [data, setData] = useState(['s','u','k'])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Context.Provider value={{setData,data}}>
+    <div >
+      <Child1/>
+      <Child2/>
     </div>
+      </Context.Provider>
   );
 }
 
