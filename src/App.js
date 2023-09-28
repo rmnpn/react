@@ -1,17 +1,16 @@
-import logo from './logo.svg';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Users from "./users/users";
 import Form from "./form/form";
 
 
 
 function App() {
-    const [onSave, setOnSave] = useState(null);
+    const [onSave, setOnSave] = useState([]);
 
   return (
     <div>
         <Form setOnSave={setOnSave}/>
-      <Users onSave={onSave}/>
+      <Users onSave={onSave} setOnSave={setOnSave}/>
     </div>
   );
 }

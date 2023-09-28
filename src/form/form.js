@@ -2,25 +2,17 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 
 const Form = ({setOnSave}) => {
-    const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm();
-    const save = (data) =>
+    const {register, handleSubmit, reset} = useForm();
+    const save = (data) => {
         fetch('https://jsonplaceholder.typicode.com/users', {
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data),
             method: 'POST'
-        }).then(value => {
-            if (!value.ok) {
-                throw Error('error')
-            }
-            return value.json()
-        })
-            .then(() => {
-                setOnSave(prev => !prev)
+        }).then(value => value.json())
+            .then(value=> {setOnSave(prev => [...prev, value])
                 reset()
-            })
-            .catch(e => {
-                console.log(e)
-            })
+    })
+}
     return (
         <div>
             <form onSubmit={handleSubmit(save)}>

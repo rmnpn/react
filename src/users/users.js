@@ -1,19 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import user from "./user/user";
+import React, {useEffect} from 'react';
 import User from "./user/user";
 
-const Users = ({onSave}) => {
-    const [users, setUsers] = useState([]);
-    console.log(onSave);
+const Users = ({onSave,setOnSave}) => {
+
     useEffect(() => {
         fetch('http://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
-            .then(value => setUsers(value));
-    }, [onSave]);
+            .then(value => setOnSave(value));
+    }, []);
     return (
         <div>
             {
-                users.map(user=> <User user={user} key={user.id}/>)
+                onSave.map(user=> <User user={user} key={user.id}/>)
             }
         </div>
     );
