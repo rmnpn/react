@@ -1,19 +1,17 @@
 import './App.css';
 import Users from "./Users/users";
 import Form from "./Form/form";
-import {useState, createContext} from "react";
+import {useState} from "react";
 
-const Context = createContext(null)
 function App() {
   const [onSave, setOnSave] = useState()
   return (
-      <Context.Provider value={{onSave,setOnSave}}>
     <div>
-      <Form/>
+      <Form setOnSave={setOnSave()}/>
       <hr/>
       <Users/>
     </div>
-      </Context.Provider>
+
   );
 }
 

@@ -2,13 +2,15 @@ import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import axios from "axios";
 
-const Form = () => {
+const Form = ({setOnSave}) => {
     const {register, handleSubmit, reset, setValue} = useForm();
-    const save = ()=> {
+    const save = () => {
         useEffect(() => {
-            axios.create(save)
+            axios.create(save).then(value => value.json())
+                .then(value=> {setOnSave(prev => [...prev, value])
+                    reset()
         }, []);
-    }
+    })
     return (
         <form onSubmit={handleSubmit(save)}>
             <label>
