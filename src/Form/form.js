@@ -3,6 +3,9 @@ import {useForm} from "react-hook-form";
 
 const Form = () => {
     const {register, handleSubmit, reset, setValue} = useForm();
+    const save = ()=> {
+
+    }
     return (
         <form onSubmit={handleSubmit()}>
             <label>
