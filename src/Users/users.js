@@ -6,7 +6,8 @@ const Users = ({users,setUsers}) => {
 
     useEffect(() => {
         userService.getAll().then(value => value.data).then(data=> setUsers(data))
-    }, [setUsers]);
+    }, []);
+    console.log(users);
     return (
         <div>
             {users.map(user => (<User key={user.id} user={user}/>))}
