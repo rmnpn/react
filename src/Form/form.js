@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {userService} from "../Users/userService";
 
 const Form = ({setUsers}) => {
-    const {register, handleSubmit, reset, setValue} = useForm();
+    const {register, handleSubmit, reset} = useForm();
     const save = () => async (user) => {
         try {
             await userService.create(user);
