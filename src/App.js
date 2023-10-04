@@ -4,12 +4,12 @@ import Form from "./Form/form";
 import {useState} from "react";
 
 function App() {
-  const [onSave, setOnSave] = useState()
+    const [users, setUsers] = useState([]);
   return (
     <div>
-      <Form setOnSave={setOnSave}/>
+      <Form setUsers={setUsers}/>
       <hr/>
-      <Users setOnSave={setOnSave}/>
+      <Users users={users} setUsers={setUsers}/>
     </div>
 
   );

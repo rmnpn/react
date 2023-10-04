@@ -2,13 +2,13 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {userService} from "../Users/userService";
 
-const Form = ({setOnSave}) => {
+const Form = ({setUsers}) => {
     const {register, handleSubmit, reset, setValue} = useForm();
     const save = () => async (user) => {
         try {
             await userService.create(user);
             reset();
-            setOnSave(prev=>[...prev,user])
+            setUsers(prev=>[...prev,user])
         }
         catch (e) {
             console.log(e)
