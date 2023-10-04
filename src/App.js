@@ -7,9 +7,9 @@ function App() {
   const [onSave, setOnSave] = useState()
   return (
     <div>
-      <Form setOnSave={setOnSave()}/>
+      <Form setOnSave={setOnSave}/>
       <hr/>
-      <Users/>
+      <Users setOnSave={setOnSave}/>
     </div>
 
   );

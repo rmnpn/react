@@ -1,16 +1,22 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
-import axios from "axios";
+import {userService} from "../Users/userService";
 
 const Form = ({setOnSave}) => {
     const {register, handleSubmit, reset, setValue} = useForm();
-    const save = () => {
-        useEffect(() => {
-            axios.create(save).then(value => value.json())
-                .then(value=> {setOnSave(prev => [...prev, value])
-                    reset()
-        }, []);
-    })
+    const save = () => async (user) => {
+        try {
+            await userService.create(user);
+            reset();
+            setOnSave(prev=>[...prev,user])
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
+
+
     return (
         <form onSubmit={handleSubmit(save)}>
             <label>
