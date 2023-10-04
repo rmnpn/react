@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Users from "./Users/users";
+import Form from "./Form/form";
+import {useState, createContext} from "react";
 
+const Context = createContext(null)
 function App() {
+  const [onSave, setOnSave] = useState()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Context.Provider value={{onSave,setOnSave}}>
+    <div>
+      <Form/>
+      <hr/>
+      <Users/>
     </div>
+      </Context.Provider>
   );
 }
 
