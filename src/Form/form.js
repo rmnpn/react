@@ -7,8 +7,8 @@ const Form = ({setUsers}) => {
     const save = () => async (user) => {
         try {
             await userService.create(user);
+            setUsers(prev=>[...prev,user]);
             reset();
-            setUsers(prev=>[...prev,user])
         }
         catch (e) {
             console.log(e)
