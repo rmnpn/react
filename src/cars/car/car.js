@@ -3,8 +3,7 @@ import {carService} from "../../service/axios";
 const Car = ({car,setNewCar}) => {
     const {id,brand,price,year} = car;
     function deleteCar() {
-        carService.deleteById()
-        setNewCar()
+        carService.deleteById().then(()=>setNewCar(prev=>!prev))
     }
     return (
         <div>
