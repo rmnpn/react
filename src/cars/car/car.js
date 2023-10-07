@@ -2,8 +2,6 @@ import React, {useEffect} from 'react';
 
 const Car = ({car}) => {
     const {id,brand,price,year} = car;
-
-    }
     return (
         <div>
             <div> id:{id}</div>
