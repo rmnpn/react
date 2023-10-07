@@ -1,7 +1,11 @@
-import React, {useEffect} from 'react';
+import {carService} from "../../service/axios";
 
-const Car = ({car}) => {
+const Car = ({car,setNewCar}) => {
     const {id,brand,price,year} = car;
+    function deleteCar() {
+        carService.deleteById()
+        setNewCar()
+    }
     return (
         <div>
             <div> id:{id}</div>
@@ -9,7 +13,7 @@ const Car = ({car}) => {
             <div> price:{price}</div>
             <div> year:{year}</div>
             <button>Update</button>
-            <button>Delete</button>
+            <button onClick={deleteCar}>Delete</button>
             <br/> <hr/>
         </div>
     );
