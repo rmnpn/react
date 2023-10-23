@@ -1,5 +1,11 @@
-import cars from "../cars/cars";
+import car from "../cars/car/car";
 
-const baseURL = 'http://owu.linkpc.net/carsAPI/v1/cars';
-
-export {baseURL}
+const baseURL = 'http://owu.linkpc.net/carsAPI/v1/';
+const cars = '/cars';
+const urls = {
+    cars: {
+        base: cars,
+        byId:(id)=> `${cars}/${id}`
+    }
+}
+export {baseURL,urls}

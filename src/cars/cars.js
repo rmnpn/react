@@ -10,7 +10,7 @@ const Cars = () => {
     return (
         <div>
             {
-                cars.map(car => (<Car car={car} key={car.id} setNewCar={setNewCar}/>))
+                cars.map(car => (<Car car={car} key={car.id} setNewCar={setNewCar} />))
             }
         </div>
     );
