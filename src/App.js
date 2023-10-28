@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import MainMenu from "./parts/MainMenu";
+import Todos from "./parts/Todos";
+import {useParams, useRoutes} from "react-router-dom";
+import Albums from "./parts/Albums";
+import Comments from "./parts/Comments";
+import Body from "./parts/component/Body";
+import Post from "./parts/component/Post";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let routes = [
+        {
+            path: '/',
+            element: <MainMenu/>,
+            children: [
+                {element: <Todos/>, path: 'todos'},
+                {element: <Albums/>, path: 'albums'},
+                {element: <Comments/>, path: 'comments'},
+                {element: <Post/>, path: 'posts'}
+            ]
+        }
+    ]
+
+    let element = useRoutes(routes)
+    return (
+        <div>
+            {element}
+        </div>
+    );
 }
 
 export default App;
