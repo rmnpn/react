@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {characterActions} from "../../../redux";
 import Character from "../character/character";
+import {characterActions} from "../../../redux/slices/charactersSlice";
 
 const Characters = () => {
     const dispatch = useDispatch();
